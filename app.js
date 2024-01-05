@@ -1,14 +1,19 @@
-const log = require("./logger");
+const Logger = require("./logger");
 const path = require("path");
 const os = require("os");
 const fs = require("fs");
 
 // line 1 is a module wrapper function which is an IIFE with params 'exports','__dirname','__filename','require','module'
-log("my name is Pranav");
+const logger = new Logger();
+logger.on("messageLogged", (e) => {
+  console.log("Catching an event messageLogged");
+  console.log("Caught message event ", e);
+});
+logger.log("my name is Pranav");
 
 //path module
 const pathObj = path.parse(__filename);
-console.log(pathObj); //root,dir,base,ext,name
+console.log("path is ", pathObj); //root,dir,base,ext,name
 
 //os module
 const totalMemory = os.totalmem();

@@ -2,6 +2,21 @@ const Logger = require("./logger");
 const path = require("path");
 const os = require("os");
 const fs = require("fs");
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.write("Hello, you are connected to my server on port 8080");
+    res.end();
+  }
+
+  if (req.url === "/courses") {
+    res.write(JSON.stringify(["java", "javascript", "node"]));
+    res.end();
+  }
+});
+server.listen(8080);
+console.log("Listening on port 8080");
 
 // line 1 is a module wrapper function which is an IIFE with params 'exports','__dirname','__filename','require','module'
 const logger = new Logger();

@@ -16,5 +16,12 @@ const freeMemory = os.freemem();
 console.log(`Total Memory: ${totalMemory}, Free Memory: ${freeMemory}`);
 
 //fs module
-const files = fs.readdirSync("./");
-console.log("Sync way - Current folder contains ", files); //[ '.git', 'app.js', 'logger.js' ]
+const syncfiles = fs.readdirSync("./");
+console.log("Sync way - Current folder contains ", syncfiles); //[ '.git', 'app.js', 'logger.js' ]
+
+const files2 = fs.readdir("./", (err, files) => {
+  if (err) console.log(err);
+  else console.log(files); //[ '.git', 'app.js', 'logger.js' ]
+});
+
+console.log("async operation returns ", files2); // undefined - readdir doesn't return anything

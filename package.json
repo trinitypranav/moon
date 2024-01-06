@@ -1,0 +1,15 @@
+{
+  "name": "moon",
+  "version": "1.0.0",
+  "description": "Project to test core node modules, npm concepts, publishing npm package, etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "underscore": "^1.13.6"
+  }
+}
